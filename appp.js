@@ -45,6 +45,7 @@ window.add = () => {
 window.getalltodos = () => {
   var refer = ref(db, "todos/");
   onValue(refer, (snapshot) => {
+    ul_list.innerHTML = "";
     const data = snapshot.val();
     // console.log(data);
     var x = Object.values(data);
