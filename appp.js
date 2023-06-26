@@ -30,7 +30,7 @@ window.add = () => {
     alert("Please Insert Todoo");
   } else {
     var refrence = push(ref(db, "todos/"));
-    console.log(refrence.key);
+    // console.log(refrence.key);
     var obj = {
       value: inp_val.value,
     };
@@ -39,7 +39,6 @@ window.add = () => {
     inp_val.value = "";
     ul_list.innerHTML = " ";
     getalltodos();
-    // window.location.reload();
   }
 };
 
@@ -47,9 +46,9 @@ window.getalltodos = () => {
   var refer = ref(db, "todos/");
   onValue(refer, (snapshot) => {
     const data = snapshot.val();
-    console.log(data);
+    // console.log(data);
     var x = Object.values(data);
-    console.log(x);
+    // console.log(x);
     for (let i = 0; i < x.length; i++) {
       ul_list.innerHTML += `<li><div class="inputbox"><input type="text" name="" disabled value="${x[i].value}" id="modify_val">
       <div class="btn-manage"><button onclick="edit('${x[i].uid}',this)"><i class="fa-solid fa-pen" id="fa-pen"></i><i class="fa-solid fa-check" id="fa-check"></i></button>
@@ -65,10 +64,10 @@ window.edit = (msg, btn) => {
   var check = editbtn.parentElement.firstChild.childNodes[1];
   pen.style.display = "none";
   check.style.display = "block";
-  console.log(inp_val);
-  console.log(editbtn.parentElement.parentElement.firstChild.firstChild);
+  // console.log(inp_val);
+  // console.log(editbtn.parentElement.parentElement.firstChild.firstChild);
   var val = editbtn.parentElement.parentElement.firstChild;
-  console.log(editbtn.parentElement.parentElement.firstChild)
+  // console.log(editbtn.parentElement.parentElement.firstChild)
   inp_val.focus();
   val.style.textDecoration = "line-through";
   inp_val.value = val.value;
@@ -86,7 +85,7 @@ window.updated = (msgs, btn) => {
   check.style.display = "none";
   modify_val.style.textDecoration = "none";
   modify_val.value = inp_val.value;
-  console.log(modify_val);
+  // console.log(modify_val);
   var refer = ref(db, `todos/${msgs}`);
   var obj = {
     value: inp_val.value,
@@ -97,23 +96,12 @@ window.updated = (msgs, btn) => {
   getalltodos();
   editbtn.removeAttribute("onclick");
   editbtn.setAttribute("onclick", `edit('${msgs}')`);
-  // var pen = msgs.parentElement.firstChild.firstChild;
-  // var check = msgs.parentElement.firstChild.lastChild;
-  // var modify_val = msgs.parentElement.parentElement.firstChild.firstChild;
-  // check.style.display = "none";
-  // pen.style.display = "block";
-  // modify_val.style.textDecoration = "none";
-  // modify_val.value = inp_val.value;
-  // inp_val.value = "";
-  // pen.parentElement.removeAttribute("onclick");
-  // msgs.setAttribute("onclick", "edit(this)");
 };
 
 window.deleted = (msg) => {
-  console.log(msg);
+  // console.log(msg);
   remove(ref(db, `todos/${msg}`));
-  console.log(msg);
+  // console.log(msg);
   ul_list.innerHTML = " ";
   getalltodos();
-  // window.location.reload();
 };
