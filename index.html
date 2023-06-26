@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todoo App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="getalltodos()">
+    <div class="container">
+        <h1 style="font-family: cursive; margin: 10px 0px;">Todoos</h1>
+        <div class="inputbox">
+            <input type="text" name="" id="inp_val" placeholder="Enter Your's Todoo">
+            <button onclick="add()"><i class="fa-solid fa-plus"></i> Add</button>
+        </div>
+        <div class="list" style="width: 100%;">
+            <ul id="ul_list">
+            </ul>
+        </div>
+    </div>
+
+
+    <script type="module" src="appp.js"></script>
+</body>
+
+</html>
